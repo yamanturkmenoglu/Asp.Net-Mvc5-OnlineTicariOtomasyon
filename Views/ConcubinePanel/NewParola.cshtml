@@ -1,0 +1,81 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Concubine
+
+@{
+    ViewBag.Title = "NewParola";
+    Layout = "~/Views/Shared/_ConcubineLayout.cshtml";
+}
+
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Güncelle       </li>
+</ol>
+<br />
+@using (Html.BeginForm("NewParola", "ConcubinePanel", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.HiddenFor(x => x.ConcubineID, new { @class = "form-control" })
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        <a href="/Concubine/Index" class="btn btn-outline-primary"> Listeye Dön </a>
+
+
+                    </th>
+                    <th scope="col">
+                       
+
+                        @Html.HiddenFor(x => x.IsDelete, new { @class = "form-control" })
+
+                    </th>
+                </tr>
+                <tr>
+                    <th scope="col">
+                        @Html.Label("Ad")
+
+                        @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.LastName, "", new { @style = "color:red" })
+
+                    </th>
+                    <th scope="col">
+                        @Html.Label("Cari Soyad")
+
+                        @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.LastName, "", new { @style = "color:red" })
+
+                    </th>
+
+
+
+                </tr>
+                <tr>
+                    <th scope="col">
+                        @Html.Label("Cari Sehir")
+
+                        @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
+
+                    </th>
+                    <th scope="col">
+                        @Html.Label("Cari Mail  ")
+
+                        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+
+                    </th>
+                </tr>
+                <tr>
+                    <th scope="col">
+                        @Html.Label("Parola")
+
+                        @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+
+                    </th>
+                    <th scope="col"> <button class="btn btn-warning">Güncelle</button></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+}
+
+

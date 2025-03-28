@@ -1,0 +1,58 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Category
+
+@{
+    ViewBag.Title = "CategoryAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Kategori  / Yeni Kategori  </li>
+</ol>
+<br />
+
+@using (Html.BeginForm("CategoryAdd", "Category", FormMethod.Post))
+{
+    <br />
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+                <th scope="col">
+                    @Html.Label("Kategori Başlığını Giriniz")
+                    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+                </th>
+                <th scope="col"> <button onclick="CategoryAdd()" class="btn btn-success">Ekle</button> </th>
+                <th scope="col"><a href="/Category/Index" class="btn btn-outline-primary"> Listeye Dön </a></th>
+
+            </tr>
+        </thead>
+    </table>
+}
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+
+    function CategoryAdd() {
+
+        console.log("CategoryAdd calıstı")
+
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Kategori Başarılı Şekilde Eklendi',
+            confirmButtonText: 'Tamam',
+            showConfirmButton: false,
+            timer: 3000
+        })
+
+
+    }
+    
+
+
+</script>
+
+
+
